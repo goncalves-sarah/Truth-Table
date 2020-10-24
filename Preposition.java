@@ -4,21 +4,29 @@ public class Preposition {
 	
 	static boolean isValidVariable(int letter) {
 	    return letter > 96 && letter <= 122 && letter != 118; 
-	  }
+	}
 	  
-	  static boolean isValidOperation(int letter) {
-		  return letter == 126 || letter == 94 || letter == 118;
-	 }
+  static boolean isValidOperation(int letter) {
+    return letter == 126 || letter == 94 || letter == 118;
+  }
 	  
 	private ArrayList<String> variables;
-    private ArrayList<Character> operations;
+  private ArrayList<Character> operations;
  
-    Preposition() {
-    	this.variables = new ArrayList<>();
-    	this.operations = new ArrayList<>();
-    }
-    
-    public void isAcceptable(String preposition) {
+  Preposition() {
+    this.variables = new ArrayList<>();
+    this.operations = new ArrayList<>();
+  }
+  
+  public ArrayList<String> getVariables() {
+  return variables;
+  }
+
+	public ArrayList<Character> getOperations() {
+		return operations;
+	}
+
+	public boolean isAcceptable(String preposition) {
     	preposition = preposition.trim().replace(" ", "");
     	
     	int variable = 0;
@@ -79,12 +87,13 @@ public class Preposition {
 
         if(variable > 3) {
           System.out.println("Número de variáveis foi excedido!");
+          return false;
         } else if(invalidOperators) {
           System.out.println("\n\t\tOperação Inválida!");
+          return false;
         } else {
-        	variables.forEach(System.out::println);
-        	operations.forEach(System.out::println);
+        	return true;
         }
 
-    }
+  }
 }

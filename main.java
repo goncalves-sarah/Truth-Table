@@ -18,7 +18,10 @@ class Main {
     
     Preposition preposition = new Preposition();
     
-    preposition.isAcceptable(prep);
+    if(preposition.isAcceptable(prep)) {
+    	preposition.getVariables().forEach(System.out::println);
+    	preposition.getOperations().forEach(System.out::println);
+    }
     
     keyboard.close();
   }
