@@ -21,6 +21,7 @@ class Main {
     if(preposition.isAcceptable(prep)) {
     	preposition.getVariables().forEach(System.out::println);
     	preposition.getOperations().forEach(System.out::println);
+    	System.out.println(preposition.getHowManyDistinctVariables());
     }
     
     keyboard.close();
