@@ -10,16 +10,17 @@ class Main {
         while(true) {
             System.out.println("\n\t\t\t\tMENU");
             System.out.println("Regras:\n\n"
-                    + "-> Máx de 3 variáveis\n"
-                    + "-> Só serão aceitas as operações v,^,~\n"
+                    + "-> Máximo de 3 variáveis\n"
+                    + "-> Só serão aceitas as operações v (OR),^ (AND) e ~ (NOT)\n"
                     + "-> Não será aceita a letra 'v' como variável\n"
-                    + "-> As operações v e ^ deverão ser colocadas entre variáveis!\n"
+                    + "-> As operações de OR e AND deverão ser colocadas entre variáveis!\n"
+                    + "-> Quando negar uma variável, lembre de seguir o modelo (~p)\n"
                     + "-> Digite 'bye bye' para sair do programa!\n");
 
-            System.out.println("Digite a preposição(max 3 váriaveis):");
+            System.out.println("Digite a preposição (no máximo 3 váriáveis): ");
             prep = keyboard.nextLine();
 
-            if(prep.equals("bye bye")){
+            if(prep.equalsIgnoreCase("bye bye")){
                 keyboard.close();
                 System.out.println("Bye bye pra você também ;)");
                 System.exit(0);
@@ -40,11 +41,10 @@ class Main {
                 Calculator cal = new Calculator();
                 cal.run(variables, operations, distinctVariables, prep);
 
-                Map<String, ArrayList<Character>> tabelaVerdade = cal.getTable();
-                System.out.println(tabelaVerdade.toString());
+
             }
 
-            System.out.print("Pressione <ENTER> para continuar.");
+            System.out.print("\nPressione <ENTER> para continuar.");
             keyboard.nextLine();
             System.out.println();
         }
